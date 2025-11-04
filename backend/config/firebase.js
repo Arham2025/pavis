@@ -3,7 +3,8 @@ const serviceAccount = JSON.parse(process.env.LEARNING_FIREBASE);  //For develop
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "learning-1d8dd.firebasestorage.app"  //For development
+  // storageBucket: "learning-1d8dd.firebasestorage.app"  //For development
+  storageBucket: "pavis-3ccdf.firebasestorage.app"  
 });
 
 const bucket = admin.storage().bucket();
