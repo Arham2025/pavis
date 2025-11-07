@@ -53,8 +53,8 @@ module.exports.registerUser = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,      // set true in production (HTTPS required)
-            sameSite: "lax",
+            secure: true,      // set true in production (HTTPS required)
+            sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000, // 24 hour
         });
 
@@ -98,8 +98,8 @@ module.exports.loginUser = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,      // set true in production (HTTPS required)
-            sameSite: "lax",
+            secure: true,      // set true in production (HTTPS required)
+            sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000, // 24 hour
         });
 
