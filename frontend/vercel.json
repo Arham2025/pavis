@@ -1,8 +1,21 @@
 {
+    "version": 2,
     "rewrites": [
         {
+            "source": "/admin/(.*)",
+            "destination": "/admin/$1"
+        },
+        {
+            "source": "/product/(.*)",
+            "destination": "/product/$1"
+        },
+        {
+            "source": "/users/(.*)",
+            "destination": "/users/$1"
+        },
+        {
             "source": "/(.*)",
-            "destination": "/"
+            "destination": "/index.html"
         }
     ]
 }
