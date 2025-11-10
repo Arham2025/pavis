@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = (userData) => {
-        setUser(userData);
+        setUser(userData.userData);
     };
 
     const logout = async () => {
