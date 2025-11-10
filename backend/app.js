@@ -40,8 +40,8 @@ app.use("/admin", adminRoute);
 app.use("/product", productRoute);
 app.use("/users", userRoute);
 
-module.exports = app;
+// module.exports = app;
 
-// app.listen(3000, ()=> {
-//     console.log("Server is running");
-// });
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server is running on ${process.env.PORT || 3000}`);
+});
