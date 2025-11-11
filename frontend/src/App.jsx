@@ -30,6 +30,9 @@ const ManageOrders = lazy(() => import("./pages/ManageOrders"));
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 axios.defaults.withCredentials = true;
 
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("pavisToken")}`;
+
 function App() {
   return (
     <>

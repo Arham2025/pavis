@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
     // Check if already logged in (when app loads)
     useEffect(() => {
         const checkAuth = async () => {
-            console.log(localStorage.getItem("pavisToken"));
             try {
                 const res = await axios.get("/users/profile", {
                     headers: {
@@ -29,7 +28,6 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = (userData) => {
-        console.log(userData);
         localStorage.setItem("pavisToken", userData.token);
         setUser(userData.userData);
     };
