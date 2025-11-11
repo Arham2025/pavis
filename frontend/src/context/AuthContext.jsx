@@ -10,11 +10,12 @@ export const AuthProvider = ({ children }) => {
     // Check if already logged in (when app loads)
     useEffect(() => {
         const checkAuth = async () => {
+            console.log(localStorage.getItem("pavisToken"));
             try {
                 const res = await axios.get("/users/profile", {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem("hbjh")}`,
+                        'Authorization': `Bearer ${localStorage.getItem("pavisToken")}`,
                     },
                 });
                 setUser(res.data);
@@ -29,13 +30,13 @@ export const AuthProvider = ({ children }) => {
 
     const login = (userData) => {
         console.log(userData);
-        localStorage.setItem("hbjh", userData.token);
+        localStorage.setItem("pavisToken", userData.token);
         setUser(userData.userData);
     };
 
     const logout = async () => {
         const response = await axios.get("/users/logout", {}, { withCredentials: true });
-        localStorage.removeItem("hbjh");
+        localStorage.removeItem("pavisToken");
         setUser(null);
         return response;
     };
