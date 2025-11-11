@@ -110,7 +110,7 @@ module.exports.loginUser = async (req, res) => {
 }
 
 module.exports.getUserProfile = async (req, res) => {
-    return res.status(201).json(req.user);
+    return res.status(200).json(req.user);
 };
 
 module.exports.logoutUser = async (req, res) => {

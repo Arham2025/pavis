@@ -11,7 +11,12 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const res = await axios.get("/users/profile", { withCredentials: true });
+                const res = await axios.get("/users/profile", {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem("hbjh")}`,
+                    },
+                });
                 setUser(res.data);
             } catch (err) {
                 setUser(null);
@@ -23,11 +28,14 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = (userData) => {
+        console.log(userData);
+        localStorage.setItem("hbjh", userData.token);
         setUser(userData.userData);
     };
 
     const logout = async () => {
         const response = await axios.get("/users/logout", {}, { withCredentials: true });
+        localStorage.removeItem("hbjh");
         setUser(null);
         return response;
     };
